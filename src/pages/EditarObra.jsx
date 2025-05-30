@@ -1,3 +1,4 @@
+// src/pages/EditarObra.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +8,8 @@ function EditarObra() {
   const navigate = useNavigate();
   const [obra, setObra] = useState({
     nome: '',
-    descricao: '',
+    localizacao: '',
+    cliente: '',
     data_inicio: '',
     data_fim: ''
   });
@@ -18,7 +20,7 @@ function EditarObra() {
         setObra(response.data);
       })
       .catch(error => {
-        console.error('Erro ao buscar dados da obra:', error);
+        console.error('Erro ao carregar obra:', error);
         alert('Erro ao carregar dados da obra.');
       });
   }, [id]);
@@ -46,7 +48,8 @@ function EditarObra() {
       <h2 className="text-2xl font-bold mb-4">Editar Obra</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input type="text" name="nome" value={obra.nome} onChange={handleChange} placeholder="Nome da obra" className="w-full p-2 border rounded" required />
-        <input type="text" name="descricao" value={obra.descricao} onChange={handleChange} placeholder="Descrição" className="w-full p-2 border rounded" required />
+        <input type="text" name="localizacao" value={obra.localizacao} onChange={handleChange} placeholder="Localização" className="w-full p-2 border rounded" required />
+        <input type="text" name="cliente" value={obra.cliente} onChange={handleChange} placeholder="Cliente" className="w-full p-2 border rounded" required />
         <input type="date" name="data_inicio" value={obra.data_inicio?.slice(0, 10)} onChange={handleChange} className="w-full p-2 border rounded" required />
         <input type="date" name="data_fim" value={obra.data_fim?.slice(0, 10)} onChange={handleChange} className="w-full p-2 border rounded" required />
         <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Salvar Alterações</button>
@@ -56,3 +59,4 @@ function EditarObra() {
 }
 
 export default EditarObra;
+

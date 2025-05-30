@@ -60,7 +60,7 @@ function ListagemObras() {
                   Editar
                 </Link>
                 <button
-                  onClick={() => deletarObra(obra.id)}
+                  to={`/editar-obra/${obra.id}`}
                   className="text-red-600 hover:underline"
                 >
                   Deletar

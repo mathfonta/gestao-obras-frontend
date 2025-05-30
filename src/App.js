@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import CadastroObras from './pages/CadastroObra';
+import CadastroObra from './pages/CadastroObras';
 import CadastroEtapa from './pages/CadastroEtapa';
 import CadastroColaborador from './pages/CadastroColaborador';
 import ListagemColaboradores from './pages/ListagemColaboradores';
@@ -8,6 +8,7 @@ import CadastroPagamento from './pages/CadastroPagamento';
 import ListagemPagamentos from './pages/ListagemPagamentos';
 import ListagemObras from './pages/ListagemObras';
 import EditarObra from './pages/EditarObra';
+import EditarPagamento from './pages/EditarPagamento';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Link to="/pagamentos" className="text-blue-600 hover:underline">Listar Pagamentos</Link>
           <Link to="/obras" className="text-blue-600 hover:underline">Listar Obras</Link>
           <Link to={`/editar-obra/obra.id}`} className="text-blue-600 hover:underline">Editar</Link>
+          <Link to="/listar-pagamentos" className="hover:underline">Pagamentos</Link>
                    
         </nav>
         <Routes>
@@ -33,9 +35,12 @@ function App() {
           <Route path="/pagamentos" element={<ListagemPagamentos />} />
           <Route path="/obras" element={<ListagemObras />} />
           <Route path="/editar-obra/:id" element={<EditarObra />} />
+          <Route path="/editar-pagamento/:id" element={<EditarPagamento />} />
+          <Route path="/listar-pagamentos" element={<ListagemPagamentos />} />
         </Routes>
       </div>
     </Router>
+
   );
 }
 
